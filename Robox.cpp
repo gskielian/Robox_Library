@@ -5,20 +5,24 @@
 */
 
 #include "Arduino.h"
-#include "Servo.h"
 #include "Robox.h"
+#include <Servo.h>
 
+Servo _lw;
+Servo _rw;
 
 Robox::Robox(int left_wheel_pin, int right_wheel_pin)
 {
-  Servo _lw;
-  Servo _rw;
-
   _lwp = left_wheel_pin;
   _rwp = right_wheel_pin;
+}
 
-  _lw.attach(_lwp);
+void Robox::attach()
+{
+  if (!_rw.attached())
   _rw.attach(_rwp);
+  if (!_rw.attached())
+  _lw.attach(_lwp);
 }
 
 void Robox::forward()

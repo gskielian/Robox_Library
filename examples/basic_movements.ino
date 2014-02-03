@@ -1,4 +1,5 @@
 #include "Robox.h"
+#include <Servo.h>
 
 //Here we create a Robox called "pika", which has basic moves
 
@@ -10,24 +11,31 @@ Robox pika(9,10);
 
 void setup()
 {
+  pika.attach();
+  Serial.begin(9600);
 }
 
 void loop()
 {
 
+  Serial.println("pika.forward();");
   pika.forward();
-  delay(1000);
+  delay(2000);
 
+  Serial.println("pika.right();");
   pika.right();
-  delay(1000);
+  delay(2000);
 
+  Serial.println("pika.left();");
   pika.left();
-  delay(1000);
+  delay(2000);
 
+  Serial.println("pika.backward();");
   pika.backward();
-  delay(1000);
+  delay(2000);
 
+  Serial.println("pika.stop();");
   pika.stop();
-  delay(1000);
+  delay(2000);
 
 }

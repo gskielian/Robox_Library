@@ -7,7 +7,8 @@
 class Robox
 {
   public:
-    Robox(int left_wheel, int right_wheel);
+    Robox(int left_wheel_pin, int right_wheel_pin);
+    void attach();
     void forward();
     void backward();
     void right();
